@@ -1,10 +1,15 @@
-(ns philly-show-checker.app.core)
+(ns philly-show-checker.app.core
+  (:require [reagent.core :as reagent]))
 
 (enable-console-print!)
 
+(defn main-component
+  []
+  [:h1 "hey"])
+
 (defn main
   []
-  (println "hey, something happened"))
+  (reagent/render-component [main-component] (.-body js/document)))
 
 (main)
 
