@@ -1,4 +1,4 @@
-(ns philly-show-checker.core
+(ns philly-show-checker.server.core
   (:require [clojurewerkz.quartzite.scheduler :as qs]
             [postal.core                      :as email]
             [clojure.tools.nrepl.server       :as nrepl]))
