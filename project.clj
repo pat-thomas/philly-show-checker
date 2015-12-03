@@ -3,7 +3,7 @@
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :main philly-show-checker.core
+  :main philly-show-checker.server.core
   :dependencies [;; client-side
                  [org.clojure/clojurescript "1.7.170"]
                  [reagent "0.5.1"]
