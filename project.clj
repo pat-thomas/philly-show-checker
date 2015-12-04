@@ -13,7 +13,8 @@
                  [clojurewerkz/quartzite  "2.0.0"]
                  [com.draines/postal      "1.11.3"]
                  [org.clojure/tools.nrepl "0.2.12"]
-                 [http-kit                "2.1.18"]]
+                 [http-kit                "2.1.18"]
+                 [org.clojure/java.jdbc   "0.3.5"]]
   :cljsbuild {:builds [{:source-paths ["src/philly_show_checker/app"]
                         :compiler     {:output-to     "public/js/philly_show_checker.js"
                                        :optimizations :whitespace
