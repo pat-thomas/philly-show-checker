@@ -20,8 +20,7 @@
        (jobs/defjob ~job-name
          [ctx#]
          (let [resp# @(http-client/get ~url)]
-           (db/store-scraper-results
-            (~html-parser-fn resp#))))
+           (db/store-scraper-results (~html-parser-fn resp#))))
        (swap! jobs assoc ~(keyword venue-name) ~job-name))))
 
 (defscraper union-transfer
