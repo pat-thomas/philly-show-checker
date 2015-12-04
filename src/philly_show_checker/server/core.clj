@@ -1,5 +1,6 @@
 (ns philly-show-checker.server.core
-  (:require [clojure.tools.nrepl.server :as nrepl]))
+  (:require [philly-show-checker.server.scraper :as scraper]
+            [clojure.tools.nrepl.server         :as nrepl]))
 
 (def nrepl-server (atom nil))
 
@@ -10,6 +11,7 @@
 
 (defn -main
   [& args]
-  (start-nrepl 7888))
+  (start-nrepl 7888)
+  (scraper/init-jobs!))
 
 
