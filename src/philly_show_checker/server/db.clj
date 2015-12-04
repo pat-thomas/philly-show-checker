@@ -1,4 +1,5 @@
-(ns philly-show-checker.server.db)
+(ns philly-show-checker.server.db
+  (:require [clojure.java.jdbc :as jdbc]))
 
 (defn store-scraper-results
   [results]
