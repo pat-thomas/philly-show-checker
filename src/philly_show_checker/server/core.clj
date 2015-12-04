@@ -9,9 +9,14 @@
   (reset! nrepl-server (nrepl/start-server :port port))
   (println (format "starting nrepl on port %s" port)))
 
+(defn start-webserver
+  [port]
+  (println (format "implement start-webserver (running on port %s)" port)))
+
 (defn -main
   [& args]
-  (start-nrepl 7888)
-  (scraper/init-jobs!))
+  (start-webserver 6888)
+  (scraper/init-jobs!)
+  (start-nrepl 7888))
 
 
