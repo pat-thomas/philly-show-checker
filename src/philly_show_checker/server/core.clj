@@ -15,8 +15,8 @@
 
 (defn -main
   [& args]
-  (start-webserver 6888)
   (scraper/init-jobs!)
+  (start-webserver 6888)
   (start-nrepl 7888))
 
 

@@ -33,21 +33,19 @@
   (fn [raw-html]
     raw-html))
 
-;; NB> need to figure out how to make this an idempotent operation.
 (defn init-jobs!
   []
-  (let [s             (-> (scheduler/initialize) scheduler/start)
-        existing-jobs (set (map str (scheduler/get-job-keys s (org.quartz.impl.matchers.GroupMatcher/jobGroupEquals "DEFAULT"))))]
+  (let [s (-> (scheduler/initialize) scheduler/start)]
     (doseq [[job-name job-def] @jobs]
       (let [job-key (format (str (name job-name) ".%s") 1)
             job     (jobs/build (jobs/of-type job-def) (jobs/with-identity (jobs/key job-key)))
-            trigger (triggers/build (triggers/with-identity (triggers/key (format "%s.%s" job-key "triggers.1")))
+            trigger-key (triggers/key (format "%s.%s" job-key "triggers.1"))
+            trigger (triggers/build (triggers/with-identity trigger-key)
                                     (triggers/start-now)
                                     (triggers/with-schedule
                                       (interval/schedule (interval/with-interval-in-days 1))))]
-        (when (contains? existing-jobs job-key)
-          (println "unschedule job"))
         (println (format "scheduling job %s" job-key))
+        (scheduler/delete-trigger s trigger-key)
         (scheduler/schedule s job trigger)))))
 
 (comment
