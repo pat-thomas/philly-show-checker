@@ -1,17 +1,17 @@
 (ns philly-show-checker.server.scraper
-  (:require [philly-show-checker.server.db    :as db]
-            [clojure.string                   :as string]
-            [clojurewerkz.quartzite.scheduler :as scheduler]
-            [clojurewerkz.quartzite.jobs      :as jobs]
-            [clojurewerkz.quartzite.triggers  :as triggers]
+  (:require [philly-show-checker.server.db                     :as db]
+            [clojure.string                                    :as string]
+            [clojurewerkz.quartzite.scheduler                  :as scheduler]
+            [clojurewerkz.quartzite.jobs                       :as jobs]
+            [clojurewerkz.quartzite.triggers                   :as triggers]
             [clojurewerkz.quartzite.schedule.calendar-interval :as interval]
-            [org.httpkit.client               :as http-client]))
+            [org.httpkit.client                                :as http-client]))
+
+(def jobs (atom {}))
 
 (defn ->scraper-job-name
   [^clojure.lang.Symbol venue-name]
   (symbol (string/join "" (map string/capitalize (string/split (name venue-name) #"-")))))
-
-(def jobs (atom {}))
 
 (defmacro defscraper
   [venue-name url html-parser-fn]
