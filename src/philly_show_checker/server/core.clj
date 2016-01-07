@@ -18,5 +18,3 @@
   (scraper/init-jobs!)
   (start-webserver 6888)
   (start-nrepl 7888))
-
-
