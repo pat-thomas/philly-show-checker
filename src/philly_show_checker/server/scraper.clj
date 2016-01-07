@@ -37,13 +37,13 @@
   []
   (let [s (-> (scheduler/initialize) scheduler/start)]
     (doseq [[job-name job-def] @jobs]
-      (let [job-key (format (str (name job-name) ".%s") 1)
-            job     (jobs/build (jobs/of-type job-def) (jobs/with-identity (jobs/key job-key)))
+      (let [job-key     (format (str (name job-name) ".%s") 1)
+            job         (jobs/build (jobs/of-type job-def) (jobs/with-identity (jobs/key job-key)))
             trigger-key (triggers/key (format "%s.%s" job-key "triggers.1"))
-            trigger (triggers/build (triggers/with-identity trigger-key)
-                                    (triggers/start-now)
-                                    (triggers/with-schedule
-                                      (interval/schedule (interval/with-interval-in-days 1))))]
+            trigger     (triggers/build (triggers/with-identity trigger-key)
+                                        (triggers/start-now)
+                                        (triggers/with-schedule
+                                          (interval/schedule (interval/with-interval-in-days 1))))]
         (println (format "scheduling job %s" job-key))
         (scheduler/delete-trigger s trigger-key)
         (scheduler/schedule s job trigger)))))
