@@ -48,6 +48,12 @@
         (scheduler/delete-trigger s trigger-key)
         (scheduler/schedule s job trigger)))))
 
+(defn test-scrapers
+  []
+  (doseq [[job-name job-def] @jobs]
+    ))
+
 (comment
+  (test-scrapers)
   (init-jobs!)
   )
