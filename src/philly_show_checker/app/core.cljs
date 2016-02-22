@@ -1,12 +1,17 @@
 (ns philly-show-checker.app.core
-  (:require [reagent.core :as reagent]
-            [philly-show-checker.app.components.venue-list :as venue-list]))
+  (:require [philly-show-checker.app.components.nav        :as nav]
+            [philly-show-checker.app.components.venue-list :as venue-list]
+            [reagent.core                                  :as reagent]))
 
 (enable-console-print!)
 
+(def app-state (reagent/atom {}))
+
 (defn main-component
   []
-  [venue-list/self])
+  [:div#app
+   [nav/self]
+   [venue-list/self]])
 
 (defn main
   []
