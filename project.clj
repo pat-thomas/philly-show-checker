@@ -4,7 +4,10 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :main philly-show-checker.server.core
-  :dependencies [;; client-side
+  :dependencies [;; shared
+                 [prismatic/schema "1.0.5"]
+
+                 ;; client-side
                  [org.clojure/clojurescript "1.7.170"]
                  [reagent "0.5.1"]
 
