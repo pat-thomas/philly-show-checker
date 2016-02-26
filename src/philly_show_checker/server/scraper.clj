@@ -1,5 +1,6 @@
 (ns philly-show-checker.server.scraper
   (:require [philly-show-checker.server.db                     :as db]
+            [schema.core                                       :as s]
             [clojure.string                                    :as string]
             [clojurewerkz.quartzite.scheduler                  :as scheduler]
             [clojurewerkz.quartzite.jobs                       :as jobs]
@@ -13,14 +14,22 @@
   [^clojure.lang.Symbol venue-name]
   (symbol (string/join "" (map string/capitalize (string/split (name venue-name) #"-")))))
 
+(def ParseResult
+  {(s/required-key :headliner) s/Str
+   (s/optional-key :openers)   (s/maybe [s/Str])
+   (s/required-key :venue)     s/Str
+   (s/required-key :price)     s/Num})
+
 (defmacro defscraper
   [venue-name url html-parser-fn]
   (let [job-name (->scraper-job-name venue-name)]
     `(do
        (jobs/defjob ~job-name
          [ctx#]
-         (let [resp# @(http-client/get ~url)]
-           (db/store-scraper-results (~html-parser-fn resp#))))
+         (let [resp# @(http-client/get ~url)
+               parse-result# (~html-parser-fn resp#)]
+           (s/validate ParseResult parse-result#)
+           (db/store-scraper-results parse-result#)))
        (swap! jobs assoc ~(keyword venue-name) ~job-name))))
 
 (defscraper union-transfer
