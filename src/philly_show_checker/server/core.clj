@@ -3,6 +3,8 @@
             [kinematic.core                     :as kinematic]
             [kinematic.dsl                      :as k-dsl]
             [org.httpkit.server                 :as http]
+            [ring.middleware.session            :as session]
+            [ring.middleware.session.cookie     :as session-cookie]
             [clojure.tools.nrepl.server         :as nrepl]))
 
 (def nrepl-server (atom nil))
@@ -15,7 +17,7 @@
 (k-dsl/defweb :philly-show-checker-api-v1
   :mount-point "/"
   :app-ns-prefix :philly-show-checker.server.api.v1
-  :before-middleware [])
+  :before-middleware [#(session/wrap-session % (session-cookie/cookie-store {:key "0b9d0d8b990d4ade"}))])
 
 (defonce stop-server-fn (atom nil))
 
