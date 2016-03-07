@@ -15,9 +15,9 @@
   (println (format "starting nrepl on port %s" port)))
 
 (k-dsl/defweb :philly-show-checker-api-v1
-  :mount-point "/"
+  :mount-point "/v1/"
   :app-ns-prefix :philly-show-checker.server.api.v1
-  :before-middleware [#(session/wrap-session % (session-cookie/cookie-store {:key "0b9d0d8b990d4ade"}))])
+  :before-middleware [#(session/wrap-session % {:store (session-cookie/cookie-store {:key "0b9d0d8b990d4ade"})})])
 
 (defonce stop-server-fn (atom nil))
 
@@ -38,3 +38,4 @@
 (comment
   (start-webserver 6888)
   )
+
