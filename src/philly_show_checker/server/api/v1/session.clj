@@ -12,8 +12,6 @@
   )
 
 (k-dsl/api-post
- (def request request)
- (def body body)
  (if (nil? (session-helpers/session-user-id))
    (if (attempt-login body)
      {:status "OK"
