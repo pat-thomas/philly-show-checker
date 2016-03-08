@@ -9,7 +9,7 @@
 
 (defn attempt-login
   [{:keys [username email password]}]
-  )
+  :implement-attempt-login)
 
 (k-dsl/api-post
  (if (nil? (session-helpers/session-user-id))
@@ -18,7 +18,7 @@
       :session-data @*session*}
      (account-model/signup-new-user body))
    ;; already logged in, just return session data
-   {:status "AlreadyLoggedIn"
+   {:status       "AlreadyLoggedIn"
     :session-data @*session*}))
 
 (k-dsl/api-get
