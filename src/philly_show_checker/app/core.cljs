@@ -2,6 +2,7 @@
   (:require [philly-show-checker.app.state                 :as state]
             [philly-show-checker.app.components.nav        :as nav]
             [philly-show-checker.app.components.venue-list :as venue-list]
+            [philly-show-checker.app.components.login      :as login]
             [philly-show-checker.app.models.session        :as session]
             [reagent.core                                  :as reagent]))
 
@@ -9,9 +10,12 @@
 
 (defn main-component
   []
-  [:div#app
-   [nav/self]
-   [venue-list/self]])
+  (if (session/logged-in?)
+    [:div#app
+     [nav/self]
+     [venue-list/self]]
+    [:div#app
+     (login/self)]))
 
 (defn main
   []

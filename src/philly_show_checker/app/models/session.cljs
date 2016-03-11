@@ -11,4 +11,13 @@
 
 (defn logged-in?
   []
-  (= (get @state/app-state [:status]) "logged-in"))
+  (= (get @state/app-state :status) "logged-in"))
+
+(defn login
+  [{:keys [username password]}]
+  (xhr/make-xhr {:method      :post
+                 :url         "session"
+                 :data        {:username username
+                               :password password}
+                 :on-complete (fn [resp]
+                                (println resp))}))
