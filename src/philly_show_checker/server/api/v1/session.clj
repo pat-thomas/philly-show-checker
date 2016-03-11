@@ -23,7 +23,7 @@
 
 (k-dsl/api-get
  {:status  "OK"
-  :message "pong!"})
+  :session-data @*session*})
 
 
 

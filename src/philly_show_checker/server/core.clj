@@ -36,6 +36,7 @@
   (start-nrepl 7888))
 
 (comment
+  (-main)
   (start-webserver 6888)
   )
 

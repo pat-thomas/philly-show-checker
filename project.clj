@@ -4,12 +4,14 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :main philly-show-checker.server.core
+  :plugins [[lein-cljsbuild "1.1.3"]]
   :dependencies [;; shared
                  [prismatic/schema "1.0.5"]
 
                  ;; client-side
-                 [org.clojure/clojurescript "1.7.170"]
-                 [reagent "0.5.1"]
+                 [org.clojure/clojurescript  "1.7.170"]
+                 [reagent                    "0.5.1"]
+                 [com.cognitect/transit-cljs "0.8.237"]
 
                  ;; server-side
                  [org.clojure/clojure        "1.7.0"]
