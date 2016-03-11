@@ -22,7 +22,7 @@
     :session-data @*session*}))
 
 (k-dsl/api-get
- {:status  "OK"
+ {:status       "OK"
   :session-data @*session*})
 
 
