@@ -12,6 +12,7 @@
                  [org.clojure/clojurescript  "1.7.170"]
                  [reagent                    "0.5.1"]
                  [com.cognitect/transit-cljs "0.8.237"]
+                 [secretary                  "1.2.3"]
 
                  ;; server-side
                  [org.clojure/clojure        "1.7.0"]

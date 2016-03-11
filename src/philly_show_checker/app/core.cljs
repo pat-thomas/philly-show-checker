@@ -4,7 +4,8 @@
             [philly-show-checker.app.components.venue-list :as venue-list]
             [philly-show-checker.app.components.login      :as login]
             [philly-show-checker.app.models.session        :as session]
-            [reagent.core                                  :as reagent]))
+            [reagent.core                                  :as reagent]
+            [philly-show-checker.app.history :as history]))
 
 (enable-console-print!)
 
@@ -19,6 +20,7 @@
 
 (defn main
   []
+  (history/init!)
   (swap! state/app-state assoc :session (session/get-session))
   (reagent/render-component [main-component] (.-body js/document)))
 

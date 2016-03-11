@@ -1,6 +1,7 @@
 (ns philly-show-checker.app.components.login
   (:require [reagent.core                           :as reagent]
             [philly-show-checker.app.models.session :as session-model]
+            [philly-show-checker.app.history        :as history]
             [philly-show-checker.app.util           :as util]))
 
 (def local-state (reagent/atom {:username ""
@@ -25,4 +26,8 @@
     {:on-click (fn [_]
                  (let [login-params (select-keys @local-state [:username :password])]
                    (session-model/login login-params)))}
-    "Submit"]])
+    "Submit"]
+   [:button
+    {:on-click (fn [_]
+                 (history/redirect "signup"))}
+    "Not signed up? Click here to sign up."]])
