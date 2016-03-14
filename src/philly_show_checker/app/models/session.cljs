@@ -7,11 +7,14 @@
   (xhr/make-xhr {:method      :get
                  :url         "session"
                  :on-complete (fn [resp]
-                                (println resp))}))
+                                (println resp)
+                                (swap! state/app-state assoc :session resp))}))
 
 (defn logged-in?
   []
-  (= (get @state/app-state :status) "logged-in"))
+  (let [status (get-in @state/app-state [:session "status"])]
+    (println status)
+    (= status "OK")))
 
 (defn login
   [{:keys [username password]}]

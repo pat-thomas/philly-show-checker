@@ -10,4 +10,5 @@
 
 (defn self
   []
-  [:div#nav (map item item-list)])
+  ;;[:div#nav (map item item-list)]
+  [:p "hello"])
