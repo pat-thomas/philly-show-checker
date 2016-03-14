@@ -13,7 +13,6 @@
 (defn logged-in?
   []
   (let [status (get-in @state/app-state [:session "status"])]
-    (println status)
     (= status "OK")))
 
 (defn login

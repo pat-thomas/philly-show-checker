@@ -1,10 +1,9 @@
 (ns philly-show-checker.app.components.home
-  (:require [philly-show-checker.app.state          :as state]
-            [philly-show-checker.app.components.nav :as nav]))
+  (:require [philly-show-checker.app.state :as state]))
 
 (defn self
-  [opts]
-  [:div
-   (nav/self)
-   [:div#home-container
-    [:p "home stuff will go here"]]])
+  []
+  (println "rendering home component")
+  [:p.home "foof"]
+  #_[:div#home-container
+     [:p "home stuff will go here"]])

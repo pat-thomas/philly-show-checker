@@ -24,7 +24,3 @@
 (k-dsl/api-get
  {:status       "OK"
   :session-data @*session*})
-
-
-
-

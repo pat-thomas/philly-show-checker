@@ -59885,20 +59885,20 @@ goog.require("goog.events.EventType");
 philly_show_checker.app.xhr_util.meths = new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "get", "get", 1683182755), "GET", new cljs.core.Keyword(null, "put", "put", 1299772570), "PUT", new cljs.core.Keyword(null, "post", "post", 269697687), "POST", new cljs.core.Keyword(null, "delete", "delete", -1768633620), "DELETE"], null);
 philly_show_checker.app.xhr_util.json_reader = cognitect.transit.reader.call(null, new cljs.core.Keyword(null, "json", "json", 1279968570));
 philly_show_checker.app.xhr_util.json_writer = cognitect.transit.writer.call(null, new cljs.core.Keyword(null, "json", "json", 1279968570));
-philly_show_checker.app.xhr_util.make_xhr = function philly_show_checker$app$xhr_util$make_xhr(p__7323) {
-  var map__7326 = p__7323;
-  var map__7326__$1 = (!(map__7326 == null) ? map__7326.cljs$lang$protocol_mask$partition0$ & 64 || map__7326.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__7326) : map__7326;
-  var method = cljs.core.get.call(null, map__7326__$1, new cljs.core.Keyword(null, "method", "method", 55703592));
-  var url = cljs.core.get.call(null, map__7326__$1, new cljs.core.Keyword(null, "url", "url", 276297046));
-  var data = cljs.core.get.call(null, map__7326__$1, new cljs.core.Keyword(null, "data", "data", -232669377));
-  var on_complete = cljs.core.get.call(null, map__7326__$1, new cljs.core.Keyword(null, "on-complete", "on-complete", -1531183971));
+philly_show_checker.app.xhr_util.make_xhr = function philly_show_checker$app$xhr_util$make_xhr(p__7748) {
+  var map__7751 = p__7748;
+  var map__7751__$1 = (!(map__7751 == null) ? map__7751.cljs$lang$protocol_mask$partition0$ & 64 || map__7751.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__7751) : map__7751;
+  var method = cljs.core.get.call(null, map__7751__$1, new cljs.core.Keyword(null, "method", "method", 55703592));
+  var url = cljs.core.get.call(null, map__7751__$1, new cljs.core.Keyword(null, "url", "url", 276297046));
+  var data = cljs.core.get.call(null, map__7751__$1, new cljs.core.Keyword(null, "data", "data", -232669377));
+  var on_complete = cljs.core.get.call(null, map__7751__$1, new cljs.core.Keyword(null, "on-complete", "on-complete", -1531183971));
   var url__$1 = [cljs.core.str("http://localhost:3141/api/v1/"), cljs.core.str(url)].join("");
   var xhr = new goog.net.XhrIo;
-  goog.events.listen(xhr, goog.net.EventType.COMPLETE, function(url__$1, xhr, map__7326, map__7326__$1, method, url, data, on_complete) {
+  goog.events.listen(xhr, goog.net.EventType.COMPLETE, function(url__$1, xhr, map__7751, map__7751__$1, method, url, data, on_complete) {
     return function(e) {
       return on_complete.call(null, cognitect.transit.read.call(null, philly_show_checker.app.xhr_util.json_reader, xhr.getResponseText()));
     };
-  }(url__$1, xhr, map__7326, map__7326__$1, method, url, data, on_complete));
+  }(url__$1, xhr, map__7751, map__7751__$1, method, url, data, on_complete));
   return xhr.send(url__$1, philly_show_checker.app.xhr_util.meths.call(null, method), cognitect.transit.write.call(null, philly_show_checker.app.xhr_util.json_writer, data), {"Content-Type":"application/json"});
 };
 goog.provide("reagent.interop");
@@ -63191,20 +63191,19 @@ philly_show_checker.app.models.session.get_session = function philly_show_checke
 };
 philly_show_checker.app.models.session.logged_in_QMARK_ = function philly_show_checker$app$models$session$logged_in_QMARK_() {
   var status = cljs.core.get_in.call(null, cljs.core.deref.call(null, philly_show_checker.app.state.app_state), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "session", "session", 1008279103), "status"], null));
-  cljs.core.println.call(null, status);
   return cljs.core._EQ_.call(null, status, "OK");
 };
-philly_show_checker.app.models.session.login = function philly_show_checker$app$models$session$login(p__7349) {
-  var map__7352 = p__7349;
-  var map__7352__$1 = (!(map__7352 == null) ? map__7352.cljs$lang$protocol_mask$partition0$ & 64 || map__7352.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__7352) : map__7352;
-  var username = cljs.core.get.call(null, map__7352__$1, new cljs.core.Keyword(null, "username", "username", 1605666410));
-  var password = cljs.core.get.call(null, map__7352__$1, new cljs.core.Keyword(null, "password", "password", 417022471));
+philly_show_checker.app.models.session.login = function philly_show_checker$app$models$session$login(p__8049) {
+  var map__8052 = p__8049;
+  var map__8052__$1 = (!(map__8052 == null) ? map__8052.cljs$lang$protocol_mask$partition0$ & 64 || map__8052.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__8052) : map__8052;
+  var username = cljs.core.get.call(null, map__8052__$1, new cljs.core.Keyword(null, "username", "username", 1605666410));
+  var password = cljs.core.get.call(null, map__8052__$1, new cljs.core.Keyword(null, "password", "password", 417022471));
   return philly_show_checker.app.xhr_util.make_xhr.call(null, new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null, "method", "method", 55703592), new cljs.core.Keyword(null, "post", "post", 269697687), new cljs.core.Keyword(null, "url", "url", 276297046), "session", new cljs.core.Keyword(null, "data", "data", -232669377), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "username", "username", 1605666410), username, new cljs.core.Keyword(null, "password", "password", 
-  417022471), password], null), new cljs.core.Keyword(null, "on-complete", "on-complete", -1531183971), function(map__7352, map__7352__$1, username, password) {
+  417022471), password], null), new cljs.core.Keyword(null, "on-complete", "on-complete", -1531183971), function(map__8052, map__8052__$1, username, password) {
     return function(resp) {
       return cljs.core.println.call(null, resp);
     };
-  }(map__7352, map__7352__$1, username, password)], null));
+  }(map__8052, map__8052__$1, username, password)], null));
 };
 goog.provide("goog.history.EventType");
 goog.history.EventType = {NAVIGATE:"navigate"};
@@ -65743,17 +65742,46 @@ philly_show_checker.app.history.history = cljs.core.atom.call(null, null);
 philly_show_checker.app.history.init_BANG_ = function philly_show_checker$app$history$init_BANG_() {
   var h = new goog.History;
   goog.events.listen(h, goog.history.EventType.NAVIGATE, function(h) {
-    return function(p1__7238_SHARP_) {
-      return secretary.core.dispatch_BANG_.call(null, p1__7238_SHARP_.token);
+    return function(p1__7780_SHARP_) {
+      return secretary.core.dispatch_BANG_.call(null, p1__7780_SHARP_.token);
     };
   }(h));
-  var G__7240_7241 = h;
-  G__7240_7241.setEnabled(true);
+  var G__7782_7783 = h;
+  G__7782_7783.setEnabled(true);
   return cljs.core.reset_BANG_.call(null, philly_show_checker.app.history.history, h);
 };
 philly_show_checker.app.history.nav_BANG_ = function philly_show_checker$app$history$nav_BANG_(token) {
   return cljs.core.deref.call(null, philly_show_checker.app.history.history).setToken(token);
 };
+goog.provide("philly_show_checker.app.components.home");
+goog.require("cljs.core");
+goog.require("philly_show_checker.app.state");
+philly_show_checker.app.components.home.self = function philly_show_checker$app$components$home$self() {
+  cljs.core.println.call(null, "rendering home component");
+  return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "p.home", "p.home", 618641866), "foof"], null);
+};
+goog.provide("philly_show_checker.app.router");
+goog.require("cljs.core");
+goog.require("philly_show_checker.app.components.home");
+var action__7147__auto___8029 = function(params__7148__auto__) {
+  if (cljs.core.map_QMARK_.call(null, params__7148__auto__)) {
+    var map__8025 = params__7148__auto__;
+    var map__8025__$1 = (!(map__8025 == null) ? map__8025.cljs$lang$protocol_mask$partition0$ & 64 || map__8025.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__8025) : map__8025;
+    var params = map__8025__$1;
+    return cljs.core.swap_BANG_.call(null, philly_show_checker.app.state.app_state, cljs.core.assoc, new cljs.core.Keyword(null, "current-view", "current-view", -1037279042), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "name", "name", 1843675177), new cljs.core.Keyword(null, "home", "home", -74557309)], null));
+  } else {
+    if (cljs.core.vector_QMARK_.call(null, params__7148__auto__)) {
+      var map__8027 = params__7148__auto__;
+      var map__8027__$1 = (!(map__8027 == null) ? map__8027.cljs$lang$protocol_mask$partition0$ & 64 || map__8027.cljs$core$ISeq$ ? true : false : false) ? cljs.core.apply.call(null, cljs.core.hash_map, map__8027) : map__8027;
+      var params = map__8027__$1;
+      return cljs.core.swap_BANG_.call(null, philly_show_checker.app.state.app_state, cljs.core.assoc, new cljs.core.Keyword(null, "current-view", "current-view", -1037279042), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "name", "name", 1843675177), new cljs.core.Keyword(null, "home", "home", -74557309)], null));
+    } else {
+      return null;
+    }
+  }
+};
+secretary.core.add_route_BANG_.call(null, "/home", action__7147__auto___8029);
+philly_show_checker.app.router.routing_table = new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "home", "home", -74557309), philly_show_checker.app.components.home.self], null);
 goog.provide("philly_show_checker.app.components.nav");
 goog.require("cljs.core");
 philly_show_checker.app.components.nav.item = function philly_show_checker$app$components$nav$item(params) {
@@ -65769,19 +65797,26 @@ goog.require("reagent.core");
 goog.require("philly_show_checker.app.components.nav");
 goog.require("philly_show_checker.app.models.session");
 goog.require("philly_show_checker.app.state");
+goog.require("philly_show_checker.app.router");
 goog.require("philly_show_checker.app.history");
 cljs.core.enable_console_print_BANG_.call(null);
 philly_show_checker.app.core.main_component = function philly_show_checker$app$core$main_component() {
   return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "div#main", "div#main", -2068630773), function() {
-    var current_view = (new cljs.core.Keyword(null, "current-view", "current-view", -1037279042)).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null, philly_show_checker.app.state.app_state));
-    if (cljs.core.truth_(philly_show_checker.app.models.session.logged_in_QMARK_.call(null))) {
-      return philly_show_checker.app.components.nav.self.call(null);
+    var temp__4425__auto__ = cljs.core.get.call(null, philly_show_checker.app.router.routing_table, (new cljs.core.Keyword(null, "name", "name", 1843675177)).cljs$core$IFn$_invoke$arity$1((new cljs.core.Keyword(null, "current-view", "current-view", -1037279042)).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null, philly_show_checker.app.state.app_state))));
+    if (cljs.core.truth_(temp__4425__auto__)) {
+      var current_view_fn = temp__4425__auto__;
+      if (cljs.core.truth_(philly_show_checker.app.models.session.logged_in_QMARK_.call(null))) {
+        return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "div", "div", 1057191632), philly_show_checker.app.components.nav.self.call(null), current_view_fn.call(null)], null);
+      } else {
+        return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "p", "p", 151049309), "you're not logged in "], null);
+      }
     } else {
-      return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "p", "p", 151049309), "you're not logged in "], null);
+      return null;
     }
   }()], null);
 };
 philly_show_checker.app.core.main = function philly_show_checker$app$core$main() {
+  philly_show_checker.app.history.init_BANG_.call(null);
   cljs.core.swap_BANG_.call(null, philly_show_checker.app.state.app_state, cljs.core.assoc, new cljs.core.Keyword(null, "session", "session", 1008279103), philly_show_checker.app.models.session.get_session.call(null));
   return reagent.core.render_component.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [philly_show_checker.app.core.main_component], null), document.body);
 };
@@ -65792,15 +65827,15 @@ philly_show_checker.app.components.venue_list.venue_data = new cljs.core.Persist
 44432795), "Union Transfer"], null), new cljs.core.Keyword(null, "philamoca", "philamoca", 1580940122), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "friendly-name", "friendly-name", 44432795), "Philamoca"], null), new cljs.core.Keyword(null, "johnny-brendas", "johnny-brendas", -914695567), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "friendly-name", "friendly-name", 44432795), "Johnny Brenda's"], null), new cljs.core.Keyword(null, "underground-arts", 
 "underground-arts", 113141354), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "friendly-name", "friendly-name", 44432795), "Underground Arts"], null)], null);
 philly_show_checker.app.components.venue_list.self = function philly_show_checker$app$components$venue_list$self() {
-  return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "div", "div", 1057191632), cljs.core.map.call(null, function(p__7126) {
-    var vec__7127 = p__7126;
-    var venue_key = cljs.core.nth.call(null, vec__7127, 0, null);
-    var venue_data = cljs.core.nth.call(null, vec__7127, 1, null);
-    return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "div", "div", 1057191632), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "on-mouse-over", "on-mouse-over", -858472552), function(vec__7127, venue_key, venue_data) {
+  return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "div", "div", 1057191632), cljs.core.map.call(null, function(p__7774) {
+    var vec__7775 = p__7774;
+    var venue_key = cljs.core.nth.call(null, vec__7775, 0, null);
+    var venue_data = cljs.core.nth.call(null, vec__7775, 1, null);
+    return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "div", "div", 1057191632), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "on-mouse-over", "on-mouse-over", -858472552), function(vec__7775, venue_key, venue_data) {
       return function(_) {
         return cljs.core.println.call(null, "ok");
       };
-    }(vec__7127, venue_key, venue_data)], null), (new cljs.core.Keyword(null, "friendly-name", "friendly-name", 44432795)).cljs$core$IFn$_invoke$arity$1(venue_data)], null);
+    }(vec__7775, venue_key, venue_data)], null), (new cljs.core.Keyword(null, "friendly-name", "friendly-name", 44432795)).cljs$core$IFn$_invoke$arity$1(venue_data)], null);
   }, philly_show_checker.app.components.venue_list.venue_data)], null);
 };
 goog.provide("philly_show_checker.app.util");
@@ -65813,14 +65848,6 @@ goog.provide("philly_show_checker.app.components.signup");
 goog.require("cljs.core");
 philly_show_checker.app.components.signup.self = function philly_show_checker$app$components$signup$self() {
   return null;
-};
-goog.provide("philly_show_checker.app.components.home");
-goog.require("cljs.core");
-goog.require("philly_show_checker.app.state");
-goog.require("philly_show_checker.app.components.nav");
-philly_show_checker.app.components.home.self = function philly_show_checker$app$components$home$self(opts) {
-  return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "div", "div", 1057191632), philly_show_checker.app.components.nav.self.call(null), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "div#home-container", "div#home-container", -918894859), new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "p", "p", 151049309), 
-  "home stuff will go here"], null)], null)], null);
 };
 goog.provide("philly_show_checker.app.components.login");
 goog.require("cljs.core");

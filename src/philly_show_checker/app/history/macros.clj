@@ -6,8 +6,3 @@
         component-name-kw (keyword component-name)]
     `(secretary.core/defroute ~route-pattern {:as ~'params}
        (swap! philly-show-checker.app.state/app-state assoc :current-view {:name ~component-name-kw}))))
-
-(comment
-  (str 'foof)
-  (macroexpand-1 '(app-route! home))
-  )
