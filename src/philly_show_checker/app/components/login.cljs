@@ -1,7 +1,7 @@
 (ns philly-show-checker.app.components.login
   (:require [reagent.core                           :as reagent]
             [philly-show-checker.app.models.session :as session-model]
-            [philly-show-checker.app.history        :as history]
+            [philly-show-checker.app.router         :as router]
             [philly-show-checker.app.util           :as util]))
 
 (def local-state (reagent/atom {:username ""
@@ -29,5 +29,5 @@
     "Submit"]
    [:button
     {:on-click (fn [_]
-                 (history/redirect "signup"))}
+                 (router/set-current-view! :signup))}
     "Not signed up? Click here to sign up."]])
