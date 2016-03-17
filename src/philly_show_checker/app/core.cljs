@@ -11,12 +11,10 @@
 (defn main-component
   []
   (when-let [current-view-fn (get router/routing-table (:name (:current-view @state/app-state)))]
-    (let [app-body (apply conj [:div#main]
-                          (if (session/logged-in?)
-                            [(nav/self) (current-view-fn)]
-                            [:p "you're not logged in"]))]
-      (println app-body)
-      app-body)))
+    (apply conj [:div#main]
+           (if (session/logged-in?)
+             [(nav/self) (current-view-fn)]
+             [:p "you're not logged in"]))))
 
 (defn main
   []

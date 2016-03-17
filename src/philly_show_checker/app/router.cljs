@@ -1,15 +1,20 @@
 (ns philly-show-checker.app.router
   (:require [philly-show-checker.app.components.home]
+            [philly-show-checker.app.components.account]
             [philly-show-checker.app.history :as history])
   (:require-macros [philly-show-checker.app.history.macros :as h]
                    [secretary.core                         :as s]))
 
 (h/app-route! home)
+(h/app-route! account)
 
 (s/defroute "*"
   []
-  (history/nav! "home"))
+  (do
+    (println "route not found")
+    (history/nav! "home")))
 
 
 (def routing-table
-  {:home philly-show-checker.app.components.home/self})
+  {:home    philly-show-checker.app.components.home/self
+   :account philly-show-checker.app.components.account/self})
