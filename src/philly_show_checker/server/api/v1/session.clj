@@ -24,3 +24,9 @@
 (k-dsl/api-get
  {:status       "OK"
   :session-data @*session*})
+
+(comment
+  (conj [:div#main]
+        [:div#nav]
+        [:meow])
+  )

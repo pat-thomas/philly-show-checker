@@ -3,7 +3,5 @@
 
 (defn self
   []
-  (println "rendering home component")
-  [:p.home "foof"]
-  #_[:div#home-container
-     [:p "home stuff will go here"]])
+  [:div#home-container
+   [:p "home stuff will go here"]])

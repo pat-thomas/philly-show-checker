@@ -2,13 +2,15 @@
 
 (defn item
   [params]
-  [:div.item params])
+  [:div.item {:on-mouse-over (fn [_]
+                               (println "huh"))}
+   (:name params)])
 
 (def item-list
-  [{:foof :barf}
-   {:bazf :quxf}])
+  [{:name "home"}
+   {:name "logout"}])
 
 (defn self
   []
-  ;;[:div#nav (map item item-list)]
-  [:p "hello"])
+  (let [items (map item item-list)]
+    (apply conj [:div#nav] items)))

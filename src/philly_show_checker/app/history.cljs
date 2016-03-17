@@ -11,8 +11,8 @@
   []
   (let [h (History.)]
     (events/listen h EventType/NAVIGATE #(secretary/dispatch! (.-token %)))
-    (doto h (.setEnabled true))
-    (reset! history h)))
+    (reset! history h)
+    (doto h (.setEnabled true))))
 
 (defn nav!
   [token]
