@@ -4,6 +4,10 @@
   background-color: #dedede;
 }
 
+#nav .item {
+  float: left;
+}
+
 #nav .item:hover {
   cursor: pointer;
 }

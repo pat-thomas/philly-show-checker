@@ -16,12 +16,15 @@
 
                  ;; server-side
                  [org.clojure/clojure        "1.7.0"]
+                 [com.cemerick/friend        "0.2.1"]
                  [clojurewerkz/quartzite     "2.0.0"]
                  [com.draines/postal         "1.11.3"]
                  [org.clojure/tools.nrepl    "0.2.12"]
                  [http-kit                   "2.1.18"]
                  [org.clojure/java.jdbc      "0.3.5"]
                  [com.relaynetwork/kinematic "1.3.12"]
+                 [korma                      "0.4.2"]
+                 [org.clojure/java.jdbc      "0.3.7"]
                  [com.stuartsierra/component "0.2.3"]]
   :cljsbuild {:builds [{:source-paths ["src/philly_show_checker/app"]
                         :compiler     {:output-to     "public/js/philly_show_checker.js"

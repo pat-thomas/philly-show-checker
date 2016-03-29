@@ -19,7 +19,7 @@
   [{:keys [username password]}]
   (xhr/make-xhr {:method      :post
                  :url         "session"
-                 :data        {:username username
-                               :password password}
+                 :data        {"username" username
+                               "password" password}
                  :on-complete (fn [resp]
                                 (println resp))}))

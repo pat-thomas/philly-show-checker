@@ -1,13 +1,25 @@
 (ns philly-show-checker.server.models.account
-  (:require [schema.core :as s]))
+  (:require [cemerick.friend.credentials   :as creds]
+            [korma.core                    :as korma]
+            [philly-show-checker.server.db :as db]))
 
-(def SignupCriteria
-  {(s/required-key :username) s/Str
-   (s/required-key :email)    s/Str
-   (s/required-key :password) s/Str})
+(korma/defentity users)
 
-(s/defn signup-new-user
-  [signup-criteria :- SignupCriteria]
-  (let [{:keys [username email password]} signup-criteria]
-    {:status  "OK"
-     :message "implement-signup-new-user"}))
+(defn lookup-user-by-email
+  [email]
+  (korma/select users
+                (korma/where {:email email})))
+
+(defn signup-new-user
+  [{:keys [email password]}]
+  (let [hashed-password (creds/hash-bcrypt password)]
+    (if-let [existing-user (lookup-user-by-email email)]
+      {:status  "UserAlreadyExists"}
+      {:status  "OK"
+       :message "implement-signup-new-user"})))
+
+(defn passwords-match?
+  "This needs to decrypt that password out of user-rec at some point"
+  [user-rec password]
+  (= (:password user-rec)
+     password))

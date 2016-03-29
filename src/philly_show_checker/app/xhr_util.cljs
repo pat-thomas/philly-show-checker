@@ -12,7 +12,7 @@
    :delete "DELETE"})
 
 (def json-reader (t/reader :json))
-(def json-writer (t/writer :json))
+(def json-writer (t/writer :json-verbose))
 
 (defn make-xhr
   [{:keys [method url data on-complete]}]
@@ -22,5 +22,7 @@
                    (fn [e]
                      (on-complete (t/read json-reader (.getResponseText xhr)))))
     (. xhr
-       (send url (meths method) (t/write json-writer data)
+       (send url
+             (meths method)
+             (.stringify js/JSON (clj->js data))
              #js {"Content-Type" "application/json"}))))
