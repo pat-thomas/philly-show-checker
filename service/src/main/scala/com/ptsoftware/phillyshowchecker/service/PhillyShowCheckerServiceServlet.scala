@@ -7,4 +7,13 @@ class PhillyShowCheckerServiceServlet extends PhillyShowCheckerServiceStack {
   get("/") {
 		"Hello world"
   }
+
+	get("/ping") {
+		"Pong!"
+	}
+
+	get("/hello/:name") {
+		val name = params("name")
+		name
+	}
 }
